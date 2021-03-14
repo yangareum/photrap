@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    tomcat1:
+        environment:
+            - JAVA_OPTS=-Dspring.profiles.active=docker -Dfile.encoding=euc-kr
+        build: 
+            context: .
+            args:
+                conf: tomcat1/conf
+                warpath: tomcat1/webapps/ROOT.war
+            dockerfile: ./DockerfileTomcat
+        volumes:
+            - ./tomcat1/logs/:/usr/local/tomcat/logs/
+    nginx:
+        build:
+            context: .
+            dockerfile: ./DockerfileNginx
+            args:
+                conf: nginx/conf
+        ports:
+            - 80:80
