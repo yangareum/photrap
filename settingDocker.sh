@@ -1,6 +1,17 @@
-echo "--- install docker ---"
 sudo yum -y upgrade
+
+echo "--- install java ---"
+sudo yum install java-1.8.0-openjdk
+sudo yum install java-1.8.0-openjdk-devel.x86_64
+
+echo "--- install git ---"
+#sudo yum install git -y
+
+echo "--- install docker ---"
 sudo yum -y install docker
+
+echo "--- clone source ---"
+git clone git@github.com:yangareum/photrap.git
 
 echo "--- start docker ---"
 sudo service docker start
