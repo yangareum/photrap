@@ -9,6 +9,11 @@ group = 'com.abocom'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+bootWar{                        //bootWar Task시 이름 지정
+    archiveBaseName="ROOT"
+    archiveVersion=""
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
